@@ -16,7 +16,7 @@ print('Loading your AI personal assistant - G One')
 
 engine=pyttsx3.init('sapi5')
 voices=engine.getProperty('voices')
-engine.setProperty('voice','voices[0].id')
+engine.setProperty('voice','voices[2].id')
 
 
 def speak(text):
@@ -63,11 +63,18 @@ if __name__=='__main__':
         if statement==0:
             continue
 
-        if "good bye" in statement or "ok bye" in statement or "stop" in statement:
+        if "goodbye" in statement or "ok bye" in statement or "stop" in statement:
             speak('your personal assistant G-one is shutting down,Good bye')
             print('your personal assistant G-one is shutting down,Good bye')
             break
 
+        if "what's your name" in statement or "what is your name" in statement or "what was your name" in statement or "What will be your name" in statement:
+            speak('My name is G-One.I am built by bilal mohib.Haha haha lying.')
+            print('My name is G-One.I am built by bilal mohib.Haha haha lying.')
+
+        if "what can you answer" in statement or "what is your capability" in statement or "what should you answer" in statement or "What are you going to answer" in statement:
+            speak('My Aim is to fool you')
+            print('My Aim is to fool you')
 
 
         if 'wikipedia' in statement:
@@ -89,7 +96,7 @@ if __name__=='__main__':
             time.sleep(5)
 
         elif 'open gmail' in statement:
-            webbrowser.open_new_tab("gmail.com")
+            webbrowser.open_new_tab("https://www.gmail.com")
             speak("Google Mail open now")
             time.sleep(5)
 
@@ -150,6 +157,7 @@ if __name__=='__main__':
 
         elif "camera" in statement or "take a photo" in statement:
             ec.capture(0,"robo camera","img.jpg")
+            speak('Camera is open now')
 
         elif 'search'  in statement:
             statement = statement.replace("search", "")
